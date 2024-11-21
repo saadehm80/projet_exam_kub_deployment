@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-exam-ingress
+#  namespace: standard
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-api
+spec:
+  ingressClassName: traefik
+  tls:
+    - secretName: api-secret
+      hosts:
+        - exam-kube.saade.ip-dynamic.org 
+  rules:
+    - host: exam-kube.saade.ip-dynamic.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+               service:
+                  name: my-app-deploy-service
+                  port:
+                    number: 80

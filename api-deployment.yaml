@@ -1,0 +1,25 @@
+# deployment du backend de mon application 
+# les apis
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deploy
+  labels:
+    app: my-app-deploy
+spec:
+  selector:
+    matchLabels:
+      app: my-app-deploy
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: my-app-deploy
+    spec:
+      containers:
+        - name: backend-api
+          image: a1b2o3u4a5c6h7i8r9/exam-api:1.0.0
+          ports:
+            - containerPort: 5000
