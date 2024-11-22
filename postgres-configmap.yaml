@@ -7,5 +7,12 @@ metadata:
 data:
   POSTGRES_DB: storedb
   POSTGRES_USER: admin
-  POSTGRES_PASSWORD: password
+# POSTGRES_PASSWORD: password
   POSTGRES_HOST_AUTH_METHOD: trust
+#  init.sql: |
+#    DO $$
+#    BEGIN
+#      IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'storedb') THEN
+#        CREATE DATABASE storedb;
+#      END IF;
+#    END $$;

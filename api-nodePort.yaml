@@ -8,7 +8,7 @@ spec:
    ports:
     - port: 80
       targetPort: 5000
-      nodePort: 30005 # a choisr ou bien automatiquement
+      nodePort: 30005 # à definir ou bien automatiquement
    selector:
        app: my-app-deploy
 

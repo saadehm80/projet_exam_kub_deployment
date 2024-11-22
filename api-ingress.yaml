@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
                service:
-                  name: my-app-deploy-service
+                  name: my-app-deploy-clusterip
                   port:
-                    number: 80
+                    number: 80 #30005

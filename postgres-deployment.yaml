@@ -5,7 +5,7 @@ metadata:
   labels:
      app: postgres
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: postgres
@@ -17,6 +17,8 @@ spec:
       containers:
         - name: db
           image: postgres:12.0-alpine
+         # command: ["createdb"]
+         # args: ["-h","postgres", "-U", "admin", "storedb" ]
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-volume
